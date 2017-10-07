@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Germania+One');
 
-
 * {
 	font-family: "Germania One";
 	margin:0px;
@@ -8,17 +7,15 @@
 	background-color: #29353D;
 }
 
-	
 list {
 	background-color: #3B4A54;
 	padding:4px;
-	width:112px;
+	width:150px;
 	height:100%;
 	color:white;
 	position:fixed;
 	display:block;
 	text-align: center;
-	//border-top: 1px solid #ff0000;
 	display:block;
 }
 
@@ -29,7 +26,6 @@ list list-item {
 	padding-right:4px;
 	padding-top:5px;
 	padding-bottom:5px;
-	//border-bottom: 1px solid #ff0000;
 }
 
 list list-item a {
@@ -66,7 +62,7 @@ list list-item a.selected {
 
 content {
 	display:block;
-	margin-left:128px;
+	margin-left:150px;
 	padding-top:8px;
 	width:100%;
 	max-width:40%;
