@@ -71,7 +71,28 @@ content {
 	color:white;
 	position:float;
 }
-
+span {text-align="right";}
 content.about {
 	text-align: center;
+	border-bottom: 2px solid #5DA8DA
+}
+
+post {
+	background-color: #dfdfdf;
+}
+
+post.title {
+	
+}
+
+post.date {
+	
+}
+
+post.image {
+	
+}
+
+post.message {
+	text-align: justify;
 }
