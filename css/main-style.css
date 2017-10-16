@@ -3,6 +3,7 @@
 * {
 	font-family: "Germania One";
 	margin:1px;
+	margin-top:0px;
 	text-decoration: none;
 	background-color: #29353D;
 	color:white;
@@ -94,7 +95,7 @@ post {
 	margin-right:16px;
 	width: auto;
 	max-width: 552px;
-	min-height:300px;
+	min-height:64px;
 	height: auto;
 	max-height: 1200px;
 	background-color: #29353D;
@@ -122,7 +123,7 @@ post post-date {
 post post-image {
 	padding-top:32px;
 	display:block;
-	height:200px;
+	height:auto;
 	width:auto;
 	color: white;
 	text-align: center;
