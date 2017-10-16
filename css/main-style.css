@@ -15,7 +15,8 @@ a:hover {
 
 list {
 	margin-top:74px;
-	box-shadow:0 0 4px #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	background-color: #3B4A54;
 	padding:4px;
 	width:130px;
@@ -56,6 +57,7 @@ list list-item a.selected {
 }
 
 header {
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 	margin-top:0px;
 	padding-top: 8px;
 	padding-bottom:32px;
@@ -72,23 +74,28 @@ header {
 }
 
 content {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	display:block;
 	margin-left:148px;
 	padding-top: 8px;
 	padding-bottom: 8px;
-	width:auto;
-	max-width:600px;
-	height:100%;
+	max-width: 80%;
+	min-height:64px;
+	height: auto;
+	max-height: 100%;
 	color:white;
 	position:float;
 }
-span {text-align="right";}
+span { 
+	text-align="right"; 
+}
 .about {
 	text-align: center;
 	border-bottom: 2px solid #5DA8DA;
 }
 
 post {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	box-shadow:0 0 4px #000000;
 	margin-bottom:32px;
 	border: 2px solid #5DA8DA;
@@ -96,10 +103,10 @@ post {
 	margin-left:164px;
 	margin-right:16px;
 	width: auto;
-	max-width: 552px;
+	max-width: 80%;
 	min-height:64px;
 	height: auto;
-	max-height: 1200px;
+	max-height: 100%;
 	background-color: #29353D;
 	padding-bottom: 8px;
 	padding-top: 8px;
@@ -133,6 +140,8 @@ post post-image {
 }
 
 post post-image img {
+	max-width:80%;
+	max-height:auto;
 	box-shadow:0 0 4px #000000;
 }
 
