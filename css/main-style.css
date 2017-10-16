@@ -15,6 +15,7 @@ a:hover {
 
 list {
 	margin-top:74px;
+	box-shadow:0 0 4px #000000;
 	background-color: #3B4A54;
 	padding:4px;
 	width:130px;
@@ -88,6 +89,7 @@ span {text-align="right";}
 }
 
 post {
+	box-shadow:0 0 4px #000000;
 	margin-bottom:32px;
 	border: 2px solid #5DA8DA;
 	display:block;
@@ -128,6 +130,10 @@ post post-image {
 	color: white;
 	text-align: center;
 	background-color: #29353D;
+}
+
+post post-image img {
+	box-shadow:0 0 4px #000000;
 }
 
 post post-message {
