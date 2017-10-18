@@ -5,7 +5,7 @@
 	margin:1px;
 	margin-top:0px;
 	text-decoration: none;
-	background-color: #29353D;
+	background-color: #24303B;
 	color:white;
 }
 
@@ -106,7 +106,7 @@ post {
 	max-width: 80%;
 	min-height:64px;
 	height: auto;
-	background-color: #29353D;
+	background-color: #29353F;
 	padding-bottom: 8px;
 	padding-top: 8px;
 	
@@ -116,7 +116,7 @@ post post-title {
 	display:block;
 	text-align: center;
 	font-size: 2em;
-	background-color: #29353D;
+	background-color: #29353F;
 	color: white;
 }
 
@@ -124,7 +124,7 @@ post post-date {
 	display:block;
 	text-align: right;
 	padding-right: 32px;
-	background-color: #29353D;
+	background-color: #29353F;
 	color: white;
 }
 
@@ -135,7 +135,7 @@ post post-image {
 	width:auto;
 	color: white;
 	text-align: center;
-	background-color: #29353D;
+	background-color: #29353F;
 }
 
 post post-image img {
@@ -150,7 +150,7 @@ post post-message {
 	padding-bottom: 16px;
 	padding-left: 16px;
 	padding-right: 16px;
-	background-color: #29353D;
+	background-color: #29353F;
 	color: white;
 	text-align: center;
 }
