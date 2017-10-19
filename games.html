@@ -1,56 +1,45 @@
-
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>GalactiCorpz</title>
 		<link rel="stylesheet" type="text/css" href="css/main-style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
 	</head>
-		<header>
-			GalactiCorpz
-		</header>
-		
-	<body>
-		<list>
-		<list-item><a href="index.html">Home</a></list-item>
-		<list-item><a class="selected" href="#">Games</a></list-item>
-		<list-item><a href="#"></a></list-item>
-		<list-item><a href="#">Watch</a></list-item>
-		<list-item><a href="#">This</a></list-item>
-		<list-item><a href="#">Space</a></list-item>
-		</list>
-				<br/><br/><br/><br/><br/>
+	<body>	
+		<div w3-include-html="header.html"></div><br/>
+		<script>
+		w3.includeHTML();
+		</script>
 			<post>
-			<post-message>Here you will find all of the games created by GalactiCorpz, and users that submit games to our competitions.</post-message>
+			<post-message>Here you will find all of the games created by users that submitted to our competitions.</post-message>
 			</post>
 				
-			<post>
-			<post-title>Island Adventure</post-title>
-			<post-image>
-			<a href="games/island.zip"><img src="content/islandAdventure.jpg"></img></a>
-			</post-image>
-			<post-message>
-			This entry is by fellow game developer Christo Meiring<br/>
-			<a href="https://cwmeiring.github.io">(You can click here for his page)</a><br/><br/>
-			-<br/><br/>
-			"After your ship was plundered and sunk by pirates, you washed up on the beach of a deserted island.<br/><br/>
-			Well, except for some pesky monkeys that keep throwing bananas at you.<br/>
-			You swiftly decide to start gathering resources to build a raft and get the hell off this island."
-			</post-message>
-			</post>
-			
-			<post>
-			<post-title>Stranded Horror</post-title>
-			<post-image>
-			<a href="games/StrandedHorror.zip"><img src="content/strandedHorror.jpg"></img></a>
-			</post-image>
-			<post-message>
-			This entry is by fellow game developer Pieter Schutte<br/>
-			<a href="https://galacticorpz.github.io">(The owner of GalactiCorpz)</a><br/><br/>
-			-<br/><br/>
-			"Waking up after a ruthless battle at sea, you find yourself on the shores of an island. Probably part of the Lost Isles in the Mist.<br/><br/>
-			You look around you and see no signs of friendly life as a pack of dire-wolves conquer this island as their own.<br/> You quickly rush to find resources to get off the island."
-			</post-message>
-			</post>
+			<game>
+				<game-title>Island Adventure</game-title>
+				<game-date>2017-10-16</game-date>
+				<game-image>
+			<a href="games/island.zip"><img src="content/islandAdventure.jpg"></img>(Click here to Download)</a></game-image>
+				<game-dev>by Christo Meiring</game-dev>
+				<game-devsite><a href="https://cwmeiring.github.io">Visit Website</a></game-devsite>
+				<game-info>"After your ship was plundered and sunk by pirates, you washed up on the beach of a deserted island.<br/>
+					Well, except for some pesky monkeys that keep throwing bananas at you.<br/>
+					You swiftly decide to start gathering resources to build a raft and get the hell off this island."
+				</game-info>
+			</game>
+				
+			<game>
+				<game-title>Stranded Horror</game-title>
+				<game-date>2017-10-16</game-date>
+				<game-image>
+			<a href="games/StrandedHorror.zip"><img src="content/strandedHorror.jpg"></img>(Click here to Download)</a></game-image>
+				<game-dev>by GalactiCorpz</game-dev>
+				<game-devsite><a href="#">Visit Website</a></game-devsite>
+				<game-info>"Waking up after a ruthless battle at sea, you find yourself on the shores of an island. Probably part of the Lost Isles in the Mist.<br/>
+				You look around you and see no signs of friendly life as a pack of dire-wolves conquer this island as their own.<br/> 
+				You quickly rush to find resources to get off the island."
+				</game-info>
+			</game>
 			
 	</body>
 </html>
