@@ -2,23 +2,40 @@
 {
 	"id":"3",
 	"title":"Finally!",
-	"date":"2017-10-19",
+	"date":"2017-10-20",
 	"image":"",
-	"content":"Finally have a basic blog system in place, now just to add a comments section for all my viewers, and happy blogging for us all!"
+	"previewImage":"",
+	"previewText":"Finally have a basic blog system in place, now just to add a comments section for all my viewers, and happy blogging for us all...",
+	"content":"Finally have a basic blog system in place, now just to add a comments section for all my viewers, and happy blogging for us all!<br>For now all comments should be sent directly to us via e-mail, and then once we receive it we will add it to the website. This is only a temporary solution as we are quite limited on what we can achieve with our current host.",
+		"comments":[
+		{
+			"by":"<a href='https://galacticorpz.github.io'>GalactiCorpz</a>",
+			"date":"2017-10-20",
+			"msg":"This is an example of what a comment would be like, if you would like to let your commet link to your page, just say so in the e-mail"
+		}
+		]
 },
 {
 		"id":"2",
 		"title":"Hnefatafl - The Viking Board Game",
 		"date":"2017-10-18",
 		"image":"",
-		"content":"As we say farewell to this month's 1-Week Game Dev challenge, we kick the rest of the month of with a simple game of Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl001.jpg'></img></post-image>Hnefatafl became a popular game in the Viking era (around the end of the 8th Century to 1000 C.E.), while wars waged on. While there are many variations of his game, we will be using the most popular of them, Copenhagen Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl002.jpg'></img></post-image>As a prototype, the game will be set on a small island, surrounded by Viking ships, you can play as either the Vikings or the Knights. It is set on a 11x11 board using strict rules according to the <a href='http://tafl.cyningstan.com/data-download/1012/copenhagen-hnefatafl-leaflet'>Copenhagen(click here to view)</a> standards.<br/><post-image><img src='content/hnefatafl003.jpg'></img></post-image><br/>At the moment, I have a working prototype going, but it is lacking a few of the rules still. I should have it up by end of Monday."
+	"previewImage":"<img src='content/hnefatafl001.jpg'></img>",
+	"previewText":"As we say farewell to this month's 1-Week Game Dev challenge, we kick the rest of the month of with a simple game of Hnefatafl...",
+		"content":"As we say farewell to this month's 1-Week Game Dev challenge, we kick the rest of the month of with a simple game of Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl001.jpg'></img></post-image>Hnefatafl became a popular game in the Viking era (around the end of the 8th Century to 1000 C.E.), while wars waged on. While there are many variations of his game, we will be using the most popular of them, Copenhagen Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl002.jpg'></img></post-image>As a prototype, the game will be set on a small island, surrounded by Viking ships, you can play as either the Vikings or the Knights. It is set on a 11x11 board using strict rules according to the <a href='http://tafl.cyningstan.com/data-download/1012/copenhagen-hnefatafl-leaflet'>Copenhagen(click here to view)</a> standards.<br/><post-image><img src='content/hnefatafl003.jpg'></img></post-image><br/>At the moment, I have a working prototype going, but it is lacking a few of the rules still. I should have more information by the end of monday.",
+		"comments":[
+		]
 	},
 	{
 		"id":"1",
 		"title":"1-Week Challenge Has Ended!",
 		"date":"2017-10-16",
 		"image":"",
-		"content":"And so the challenge has come to an end. Bravely our heroes created their games to combat the evil that befalls their lost isles. While this will not be the last of it, it sure was the most fun to start with!<br/><br/> <a href='games.html'>Click here for The Games Section</a> to view all entries!"
+	"previewImage":"",
+	"previewText":"And so the challenge has come to an end. Bravely our heroes created their games to combat the evil that befalls their lost isles...",
+		"content":"And so the challenge has come to an end. Bravely our heroes created their games to combat the evil that befalls their lost isles. While this will not be the last of it, it sure was the most fun to start with!<br/><br/> <a href='games.html'>Click here for The Games Section</a> to view all entries!",
+		"comments":[
+		]
 	
 	},
 	{
@@ -26,6 +43,10 @@
 		"title":"1-Week Game Dev Challenge!",
 		"date":"2017-10-9",
 		"image":"",
-		"content":"<p>The goal of this challenge is to build upon our skills into speed development and aim to complete a full prototype during a period of 1 week.</p><p>For this challenge, here is our choices:</p><br/><p>Genre:<br/>Survival</p><br/><p>Objective<br/> Build a raft to get off the island, but beware the mystery that befalls the island.</p><br/><p>Limitations<br/> No mythical or magical references.</p><br/>"
+	"previewImage":"",
+	"previewText":"The goal of this challenge is to build upon our skills into speed development and aim to complete a full prototype during a period of 1 week...",
+		"content":"<p>The goal of this challenge is to build upon our skills into speed development and aim to complete a full prototype during a period of 1 week.</p><p>For this challenge, here is our choices:</p><br/><p>Genre:<br/>Survival</p><br/><p>Objective<br/> Build a raft to get off the island, but beware the mystery that befalls the island.</p><br/><p>Limitations<br/> No mythical or magical references.</p><br/>",
+		"comments":[
+		]
 	
 	}]

@@ -1,0 +1,7 @@
+backup functions
+
+
+						content += "<div id='iTEXT'>Name:</div><div style='white-space:pre-wrap' id='iNAME' contenteditable></div>"+
+						"<div id='iTEXT'>E-mail:</div><div style='white-space:pre-wrap' id='iMAIL' contenteditable></div>"+
+						"<div id='iTEXT'>Comment:</div><div style='white-space:pre-wrap' id='iMSG' contenteditable></div>"+
+						"<div onclick='return submitComment()' id='iBTN'><a href='#'>Submit</a></div>";

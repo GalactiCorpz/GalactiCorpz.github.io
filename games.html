@@ -15,31 +15,24 @@
 			<post-message>Here you will find all of the games created by users that submitted to our competitions.</post-message>
 			</post>
 				
-			<game>
-				<game-title>Island Adventure</game-title>
-				<game-date>2017-10-16</game-date>
-				<game-image>
-			<a href="games/island.zip"><img src="content/islandAdventure.jpg"></img>(Click here to Download)</a></game-image>
-				<game-dev>by Christo Meiring</game-dev>
-				<game-devsite><a href="https://cwmeiring.github.io">Visit Website</a></game-devsite>
-				<game-info>"After your ship was plundered and sunk by pirates, you washed up on the beach of a deserted island.<br/>
-					Well, except for some pesky monkeys that keep throwing bananas at you.<br/>
-					You swiftly decide to start gathering resources to build a raft and get the hell off this island."
-				</game-info>
-			</game>
-				
-			<game>
-				<game-title>Stranded Horror</game-title>
-				<game-date>2017-10-16</game-date>
-				<game-image>
-			<a href="games/StrandedHorror.zip"><img src="content/strandedHorror.jpg"></img>(Click here to Download)</a></game-image>
-				<game-dev>by GalactiCorpz</game-dev>
-				<game-devsite><a href="#">Visit Website</a></game-devsite>
-				<game-info>"Waking up after a ruthless battle at sea, you find yourself on the shores of an island. Probably part of the Lost Isles in the Mist.<br/>
-				You look around you and see no signs of friendly life as a pack of dire-wolves conquer this island as their own.<br/> 
-				You quickly rush to find resources to get off the island."
-				</game-info>
-			</game>
-			
+		<script>
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myArr = JSON.parse(this.responseText);
+					$.each(myArr,function(key,val){
+						var d = new Date(myArr[key].date);
+						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
+						$("#games").append("<game>\n\t<game-title>"+myArr[key].title+"</game-title>\n\t<game-date>"+f+"</game-date>\n\t<game-image><a href="+
+						myArr[key].download+"><img src="+myArr[key].image+"></img>(Click here to Download)</a></game-image>\n\t<game-dev>"+
+						myArr[key].developer+"</game-dev><game-devsite><a href="+myArr[key].url+">Visit Website</a></game-devsite>\n\t<game-info>"+
+						myArr[key].info+"</game-info></game>");
+					});
+				}
+			};
+			xmlhttp.open("GET", "content/games.json", true);
+			xmlhttp.send();
+		</script>
+		<div id="games"></div>
 	</body>
 </html>

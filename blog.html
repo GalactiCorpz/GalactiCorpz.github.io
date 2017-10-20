@@ -20,8 +20,10 @@
 				if (this.readyState == 4 && this.status == 200) {
 					var myArr = JSON.parse(this.responseText);
 					$.each(myArr,function(key,val){
-						$("#posts").append("<post>\n\t<post-title>"+myArr[key].title+"</post-title>\n\t<post-date>"+myArr[key].date+"</post-date>\n\t"+
-						"<post-image>"+ myArr[key].image +"</post-image><post-message>"+myArr[key].content+"</post-message></post>");
+						var d = new Date(myArr[key].date);
+						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
+						$("#posts").append("<post>\n\t<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
+						"<post-image>"+ myArr[key].previewImage +"</post-image><post-message>"+myArr[key].previewText+"<br><br><a href=post.html?id="+myArr[key].id+">>>Read more<<</a></post-message></post>");
 					});
 				}
 			};

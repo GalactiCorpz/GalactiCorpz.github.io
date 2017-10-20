@@ -16,12 +16,15 @@
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					var myArr = JSON.parse(this.responseText);
-						$("#posts").append("<post>\n\t<post-title>"+myArr[0].title+"</post-title>\n\t<post-date>"+myArr[0].date+"</post-date>\n\t"+
-						"<post-image>"+ myArr[0].image +"</post-image><post-message>"+myArr[0].content+"</post-message></post>");
-						if(myArr.length > 1){
-						$("#posts").append("<post>\n\t<post-date>"+myArr[0].date+"</post-date>\n\t<post-title>"+myArr[1].title+"</post-title>\n\t"+
-						"<post-image>"+ myArr[1].image +"</post-image><post-message>"+myArr[1].content+"</post-message></post>");
-						}
+					var index = 0;
+					$.each(myArr,function(key,val){
+						if(index < 2){
+						var d = new Date(myArr[key].date);
+						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
+						$("#posts").append("<post>\n\t<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
+						"<post-image>"+ myArr[key].previewImage +"</post-image><post-message>"+myArr[key].previewText+"<br><br><a href=post.html?id="+myArr[key].id+">>>Read more<<</a></post-message></post>");
+						}index += 1;
+					});
 				}
 			};
 			xmlhttp.open("GET", "content/posts.json", true);

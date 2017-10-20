@@ -1,0 +1,23 @@
+[
+{
+"id":"1",
+"title":"Island Adventure",
+"image":"content/islandAdventure.jpg",
+"developer":"Christo Meiring",
+"url":"https://cwmeiring.github.io",
+"download":"games/island.zip",
+"date":"2017-10-16",
+"info":"'After your ship was plundered and sunk by pirates, you washed up on the beach of a deserted island.<br/> Well, except for some pesky monkeys that keep throwing bananas at you.<br/> You swiftly decide to start gathering resources to build a raft and get the hell off this island.'"
+}
+,
+{
+"id":"0",
+"title":"Stranded Horror",
+"image":"content/strandedHorror.jpg",
+"developer":"Pieter Schutte",
+"url":"https://galacticorpz.github.io",
+"download":"games/StrandedHorror.zip",
+"date":"2017-10-16",
+"info":"'Waking up after a ruthless battle at sea, you find yourself on the shores of an island. Probably part of the Lost Isles in the Mist.<br/>You look around you and see no signs of friendly life as a pack of dire-wolves conquer this island as their own.<br/> You quickly rush to find resources to get off the island.'"
+}
+]

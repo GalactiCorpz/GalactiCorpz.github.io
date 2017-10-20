@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>GalactiCorpz</title>
+		<link rel="icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/main-style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		
+	</head>
+	<body>	
+		<div w3-include-html="header.html"></div><br/>
+		<script>
+		w3.includeHTML();
+		</script>
+		
+		<script>
+		var params = location.search.substring(1).split("&");
+		
+		var temp = params[0].split("=");
+		l = unescape(temp[1]);
+		var myArr;
+		function submitComment(){
+			var iName = $("#iNAME").html();
+			var iMail = $("#iMAIL").html();
+			var iMessage = $("#iMSG").html();
+			
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					myArr = JSON.parse(this.responseText);
+					$.each(myArr,function(key,val){
+						if(myArr[key].id == l){
+							myArr[key].comments.push({by: iName, mail: iMail, date: Date.now(), msg: iMessage});
+						}
+					});
+					var json = JSON.stringify(myArr);
+					alert(json);
+				}
+			}
+			xmlhttp.open("GET", "content/posts.json", true);
+			xmlhttp.send();
+		}
+			
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					myArr = JSON.parse(this.responseText);
+					$.each(myArr,function(key,val){
+					var content = "";
+					if(myArr[key].id == l){
+					
+						var d = new Date(myArr[key].date);
+						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
+						content += "<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
+						"<post-image>"+ myArr[key].image +"</post-image><post-message>"+myArr[key].content+"<br/><br/>Comments:<br></post-message>";
+						var myCom = myArr[key].comments;
+						$.each(myCom,function(k,v){
+							content += "<comment>"+
+							"<comment-by>Comment by: "+myCom[k].by+"</comment-by>"+
+							"<comment-date>"+myCom[k].date+"</comment-date>"+
+							"<comment-msg>"+myCom[k].msg+"</comment-msg>"
+							
+							+"</comment>";
+						});
+						$("post").append(content);
+					}});
+				}
+			};
+			xmlhttp.open("GET", "content/posts.json", true);
+			xmlhttp.send();
+		</script>
+		<post></post>
+	</body>
+</html>
