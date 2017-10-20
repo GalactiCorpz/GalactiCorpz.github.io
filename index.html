@@ -23,7 +23,8 @@
 						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 						$("#posts").append("<post>\n\t<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
 						"<post-image>"+ myArr[key].previewImage +"</post-image><post-message>"+myArr[key].previewText+"<br><br><a href=post.html?id="+myArr[key].id+">>>Read more<<</a></post-message></post>");
-						}index += 1;
+						}
+						index += 1;
 					});
 				}
 			};
