@@ -2,27 +2,48 @@
 <html>
 	<head>
 		<title>GalactiCorpz</title>
+				
+		<meta property="og:url"           content="https://galacticorpz.github.io/index.html" />
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="GalactiCorpz" />
+		<meta property="og:description"   content="A custom blog to keep track of all projects and competitions held by us." />
+		<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+		  
 		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="css/main-style.css
+		<link rel="stylesheet" type="text/css" href="css/post.css">
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108410429-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108410429-1');
-</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8490856521842499",
-    enable_page_level_ads: true
-  });
-</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108410429-1"></script>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		
+		<div id="fb-root"></div>
+		
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-108410429-1');
+		</script>
+		
+		
+		<script>
+		  (adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-8490856521842499",
+			enable_page_level_ads: true
+		  });
+		</script>
 	</head>
 	<body>	
 		<div w3-include-html="header.html"></div><br/>
@@ -31,34 +52,37 @@
 		</script>
 		
 		<script>
-		var params = location.search.substring(1).split("&");
-		
-		var temp = params[0].split("=");
-		l = unescape(temp[1]);
-		var myArr;
-		function submitComment(){
-			var iName = $("#iNAME").html();
-			var iMail = $("#iMAIL").html();
-			var iMessage = $("#iMSG").html();
-			
+			// Variables
+			var myArr;
+			var params = location.search.substring(1).split("&");
+			var temp = params[0].split("=");
+			l = unescape(temp[1]);
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					myArr = JSON.parse(this.responseText);
-					$.each(myArr,function(key,val){
-						if(myArr[key].id == l){
-							myArr[key].comments.push({by: iName, mail: iMail, date: Date.now(), msg: iMessage});
-						}
-					});
-					var json = JSON.stringify(myArr);
-					alert(json);
+			
+			// Submit comment script
+			function submitComment(){
+				var iName = $("#iNAME").html();
+				var iMail = $("#iMAIL").html();
+				var iMessage = $("#iMSG").html();
+				
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						myArr = JSON.parse(this.responseText);
+						$.each(myArr,function(key,val){
+							if(myArr[key].id == l){
+								myArr[key].comments.push({by: iName, mail: iMail, date: Date.now(), msg: iMessage});
+							}
+						});
+						var json = JSON.stringify(myArr);
+						alert(json);
+					}
 				}
+				xmlhttp.open("GET", "content/posts.json", true);
+				xmlhttp.send();
 			}
-			xmlhttp.open("GET", "content/posts.json", true);
-			xmlhttp.send();
-		}
 			
-			var xmlhttp = new XMLHttpRequest();
+			// Load post script
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					myArr = JSON.parse(this.responseText);
@@ -70,6 +94,8 @@
 						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 						content += "<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
 						"<post-image>"+ myArr[key].image +"</post-image><post-message>"+myArr[key].content+"<br/><br/>Comments:<br></post-message>";
+						
+						content += "  <div class='fb-share-button' data-href='post.html?id="+myArr[key].id+"' data-layout='button_count'></div>";
 						var myCom = myArr[key].comments;
 						$.each(myCom,function(k,v){
 							content += "<comment>"+

@@ -1,0 +1,78 @@
+
+#iTEXT{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	display:block;
+	margin-left:16px;
+	background-color: #29353F;
+	padding-top: 8px;
+}
+#iBTN{
+	background-color: #3B4A54;
+	max-width:128px;
+	width:auto;
+	text-align:center;
+	border: 1px solid lightgray;
+	transition: 2s;
+	
+	padding: 2px;
+	margin-left:16px;
+	margin-bottom:8px;
+}
+#iBTN a {
+	
+	background-color: #3B4A54;
+}
+#iBTN:hover{
+	border: 1px solid #5DA8DA;
+	
+}
+#iMSG {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	background-color: #24303B;
+	border: 1px solid darkgray;
+	box-shadow:1px 1px 1px 0 lightgray inset;
+	margin-top: 8px;
+	margin-bottom:8px;
+	margin-left: 16px;
+	margin-right: 16px;
+	text-align: center;
+	padding: 2px 3px;
+	width: auto;
+	height: auto;
+	min-height: 64px;
+}
+#iNAME {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	background-color: #24303B;
+	border: 1px solid darkgray;
+	box-shadow:1px 1px 1px 0 lightgray inset;
+	margin-top: 8px;
+	margin-bottom:8px;
+	margin-left: 16px;
+	margin-right: 16px;
+	text-align: center;
+	padding: 2px 3px;
+	width: auto;
+	height: auto;
+	min-height: 18px;
+	max-height: 18px;
+}
+#iMAIL {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	background-color: #24303B;
+	border: 1px solid darkgray;
+	box-shadow:1px 1px 1px 0 lightgray inset;
+	margin-top: 8px;
+	margin-bottom:8px;
+	margin-left: 16px;
+	margin-right: 16px;
+	text-align: center;
+	padding: 2px 3px;
+	width: auto;
+	height: auto;
+	min-height: 18px;
+	max-height: 18px;
+}

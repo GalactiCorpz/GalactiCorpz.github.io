@@ -1,0 +1,116 @@
+post {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	box-shadow:0 0 4px #000000;
+	margin-bottom:32px;
+	border-bottom: 2px solid #5DA8DA;
+	display:block;
+	margin-left:164px;
+	margin-right:16px;
+	width: auto;
+	max-width: 80%;
+	min-height:64px;
+	height: auto;
+	background-color: #29353F;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	
+}
+post post-title {
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	background-color: #29353F;
+	color: white;
+}
+
+post post-title a{
+	background-color: #29353F;
+}
+
+post post-date {
+	float: right;
+	font-size: .9em;
+	padding: 8px;
+	padding-top: 0px;
+	background-color: #29353F;
+	color: white;
+}
+post post-image {
+	padding-top:32px;
+	display:block;
+	height:auto;
+	width:auto;
+	color: white;
+	text-align: center;
+	background-color: #29353F;
+}
+post post-image img {
+	max-width:60%;
+	max-height:auto;
+	text-align: center;
+	box-shadow:0 0 4px #000000;
+}
+post post-message {
+	display:block;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: #29353F;
+	color: white;
+	text-align: center;
+}
+post post-message p {
+	display:block;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: #29353D;
+	color: white;
+	text-align: center;
+	
+}
+
+post comment {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	box-shadow:0 0 4px #000000;
+	margin-bottom:32px;
+	display:block;
+	margin-left:16px;
+	margin-right:16px;
+	width: auto;
+	min-height:64px;
+	height: auto;
+	background-color: #29353F;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-bottom: 1px solid #5DA8DA;
+}
+
+post comment-by {
+	display: block;
+	padding: 8px;
+	text-align: left;
+	font-size: 1.2em;
+	background-color: #29353F;
+	color: white;
+}
+
+post comment-date {
+	float: inline;
+	font-size: .9em;
+	padding: 8px;
+	padding-top: 0px;
+	background-color: #29353F;
+	color: white;
+}
+
+post comment-msg {
+	display:block;
+	padding-top: `16px;
+	padding-bottom: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: #29353F;
+	color: white;
+	text-align: center;
+}
