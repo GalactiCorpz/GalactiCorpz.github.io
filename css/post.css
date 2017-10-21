@@ -7,11 +7,11 @@ post {
 	margin-left:164px;
 	margin-right:16px;
 	width: auto;
-	max-width: 80%;
+	max-width: 70%;
 	min-height:64px;
 	height: auto;
 	background-color: #29353F;
-	padding-bottom: 8px;
+	padding-bottom: 16px;
 	padding-top: 8px;
 	
 }
@@ -69,6 +69,12 @@ post post-message p {
 	text-align: center;
 	
 }
+post post-message a {
+	background-color: #29353D;
+	color: white;
+	text-align: center;
+	
+}
 
 post comment {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -113,4 +119,33 @@ post comment-msg {
 	background-color: #29353F;
 	color: white;
 	text-align: center;
+}
+
+
+post div {
+	display:block;
+	height:auto;
+	width:auto;
+	background-color: #29353F;
+}
+
+post div#share-buttons {
+	vertical-align:middle;
+	display:block;
+	width:auto;
+	height:42px;
+	background-color: #29353F;
+}
+
+post div#share-buttons img {
+	margin:8px;
+	width: auto;
+	height: 32px;
+	display: inline;
+	vertical-align:middle;
+	background-color: #29353F;
+	-webkit-transition: 0.2s;
+	-mos-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
 }

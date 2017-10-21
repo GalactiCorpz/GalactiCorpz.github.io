@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>GalactiCorpz</title>
 				
 		<meta property="og:url"           content="https://galacticorpz.github.io/index.html" />
 		<meta property="og:type"          content="website" />
@@ -93,9 +92,13 @@
 						var d = new Date(myArr[key].date);
 						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 						content += "<post-title><a href=post.html?id="+myArr[key].id+">"+myArr[key].title+"</a></post-title>\n\t<post-date>"+f+"</post-date>\n\t"+
-						"<post-image>"+ myArr[key].image +"</post-image><post-message>"+myArr[key].content+"<br/><br/>Comments:<br></post-message>";
+						"<post-image>"+ myArr[key].image +"</post-image><post-message>"+myArr[key].content+"<br/>"+
 						
-						content += "  <div class='fb-share-button' data-href='post.html?id="+myArr[key].id+"' data-layout='button_count'></div>";
+						 "<br><br>Don't forget to... Well, you know the drill!</br><div id='share-buttons'><a href='mailto:kiljaeden256@gmail.com?Subject="+myArr[key].title+"&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20"+location.href+"<img src='https://simplesharebuttons.com/images/somacro/email.png' alt='Email' /></a>"+"<a href='https://twitter.com/share?url="+location.href+"&amp;text="+myArr[key].title+"&amp;hashtags=gamedev,indiedev,IndieGameDev,1game1week' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/twitter.png' alt='Twitter' /></a>"+"<a href='http://www.facebook.com/sharer.php?u="+location.href+"' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/facebook.png' alt='Facebook' /></a>"+"<a href='https://plus.google.com/share?url="+location.href+"' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/google.png' alt='Google' /></a>"+"<a href='http://www.linkedin.com/shareArticle?mini=true&amp;url="+location.href+"' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/linkedin.png' alt='LinkedIn' /></a>"+"<a href='javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());'><img src='https://simplesharebuttons.com/images/somacro/pinterest.png' alt='Pinterest' /></a>"+"<a href='http://reddit.com/submit?url="+location.href+"&amp;title="+myArr[key].title+"' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/reddit.png' alt='Reddit' /></a>"+"<a href='http://www.tumblr.com/share/link?url="+location.href+"&amp;title="+myArr[key].title+"' target='_blank'><img src='https://simplesharebuttons.com/images/somacro/tumblr.png' alt='Tumblr' /></a>"+"<a href='javascript:;' onclick='window.print()'><img src='https://simplesharebuttons.com/images/somacro/print.png' alt='Print' /></a>"+"</div>"+"<br/>";
+						 if(myArr[key].comments.length > 0)
+						 {
+						 content += "Comments:<br></post-message>";
+						
 						var myCom = myArr[key].comments;
 						$.each(myCom,function(k,v){
 							content += "<comment>"+
@@ -105,7 +108,12 @@
 							
 							+"</comment>";
 						});
+						}
+						else
+						{content += "</post-message>";}
 						$("post").append(content);
+						content = "<title>GalactiCorpz - "+myArr[key].title+"</title>";
+						$("head").append(content);
 					}});
 				}
 			};

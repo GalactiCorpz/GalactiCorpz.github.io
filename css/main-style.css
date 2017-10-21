@@ -9,6 +9,32 @@
 	color:white;
 }
 
+
+#share-buttons {
+	vertical-align:middle;
+	width:auto;
+	height:42px;
+	background-color: #29353F;
+}
+
+#share-buttons img {
+	margin:8px;
+	width: auto;
+	height: 32px;
+	display: inline;
+	vertical-align:middle;
+	background-color: #29353F;
+	-webkit-transition: 0.2s;
+	-mos-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+}
+
+#share-buttons img:hover {
+	background-color: #29353F;
+	transform: scale(1.25);
+}
+
 a:hover {
 	color: #CCC;
 }
@@ -36,13 +62,13 @@ header {
 }
 content {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	margin-bottom:32px;
+	border-bottom: 2px solid #5DA8DA;
 	display:block;
 	margin-left:164px;
 	margin-right:16px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	max-width: 80%;
 	min-height:64px;
+	width:70%;
 	height: auto;
 	max-height: 100%;
 	color:white;
