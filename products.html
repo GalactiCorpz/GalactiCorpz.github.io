@@ -58,13 +58,13 @@
 						var d = new Date(myArr[key].date);
 						var f = (d.getFullYear()) + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 						$("#games").append("<game>\n\t<game-title>"+myArr[key].title+"</game-title>\n\t<game-date>"+f+"</game-date>\n\t<game-image><a href="+
-						myArr[key].download+"><img src="+myArr[key].image+"></img>(Click here to Download)</a></game-image>\n\t<game-dev>"+
+						myArr[key].download+"><img src="+myArr[key].image+"></img>(View Unity Asset Store)</a></game-image>\n\t<game-dev>"+
 						myArr[key].developer+"</game-dev><game-devsite><a href="+myArr[key].url+">Visit Website</a></game-devsite>\n\t<game-info>"+
 						myArr[key].info+"</game-info></game>");
 					});
 				}
 			};
-			xmlhttp.open("GET", "content/games.json", true);
+			xmlhttp.open("GET", "content/products.json", true);
 			xmlhttp.send();
 		</script>
 		<div id="games"></div>
