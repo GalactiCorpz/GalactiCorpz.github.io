@@ -37,6 +37,7 @@
 
 a:hover {
 	color: #CCC;
+	border-bottom: 1px solid #FFF;
 }
 
 div {

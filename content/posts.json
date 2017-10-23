@@ -1,5 +1,16 @@
 [
 {
+	"id":"4",
+	"title":"#1game1week - And the Winner is! Island Adventure",
+	"date":"2017-10-20",
+	"image":"content/islandAdventure.jpg",
+	"previewImage":"content/islandAdventure.jpg",
+	"previewText":"The winner of this month's #1game1week challenge, <a href='https://cwmeiring.github.io'>Island Adventure by Christo Meiring</a>",
+	"content":"After quite some consideration and gameplay, we have concluded that based on the gameplay and replayability of the games, this entry by Christo Meiring is top on the list, with Stranded Horror, made by ourselves lack a bit in those departments.<br><br>So without further ado:<br><img src='content/islandAdventure001.jpg'></img><br>The game has a captivating short story to it, as you prepare for your escape from this hostile island. It features quite a few levels, difficult challenges and filled with aggrevating fun! Be sure to try it out and visit the developer's site by clicking on the links below.<br><br>Developed by Christo Meiring<br><a href='https://cwmeiring.github.io'>Developer Site</a><br><a href='https://twitter.com/MeiringCW'>Developer's Twitter</a>",
+		"comments":[
+		]
+},
+{
 	"id":"3",
 	"title":"Finally!",
 	"date":"2017-10-20",
@@ -20,7 +31,7 @@
 		"title":"Hnefatafl - The Viking Board Game",
 		"date":"2017-10-18",
 		"image":"",
-	"previewImage":"<img src='content/hnefatafl001.jpg'></img>",
+	"previewImage":"content/hnefatafl001.jpg",
 	"previewText":"As we say farewell to this month's 1-Week Game Dev challenge, we kick the rest of the month of with a simple game of Hnefatafl...",
 		"content":"As we say farewell to this month's 1-Week Game Dev challenge, we kick the rest of the month of with a simple game of Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl001.jpg'></img></post-image>Hnefatafl became a popular game in the Viking era (around the end of the 8th Century to 1000 C.E.), while wars waged on. While there are many variations of his game, we will be using the most popular of them, Copenhagen Hnefatafl.<br/><br/><post-image><img src='content/hnefatafl002.jpg'></img></post-image>As a prototype, the game will be set on a small island, surrounded by Viking ships, you can play as either the Vikings or the Knights. It is set on a 11x11 board using strict rules according to the <a href='http://tafl.cyningstan.com/data-download/1012/copenhagen-hnefatafl-leaflet'>Copenhagen(click here to view)</a> standards.<br/><post-image><img src='content/hnefatafl003.jpg'></img></post-image><br/>At the moment, I have a working prototype going, but it is lacking a few of the rules still. I should have more information by the end of monday.",
 		"comments":[
