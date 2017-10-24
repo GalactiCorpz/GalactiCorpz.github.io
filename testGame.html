@@ -6,7 +6,7 @@
 	<style>
 	#canvas {
 		position: relative;
-		background-color:‎#6495ED;
+		background-color: #6495ED;
 		outline: 1px solid black;
 		height:480px;
 		width:640px;
@@ -14,8 +14,6 @@
 	
 	#character {
 		position: absolute;
-		background-color:red;
-		outline: 1px solid black;
 	}
 	</style>
 	</head>
@@ -50,19 +48,42 @@
 		}
 		
 		function Entity(){
+			// Instantiate entity variables
 			this.position = new Vector();
 			this.sprite = new Image();
 			this.velocity = new Vector();
 			
+			// Entity update function
+			// This is where code-side movement and collision detection should be done.
 			this.update = function(){
 				this.position.x += this.velocity.x;
 				this.position.y += this.velocity.y;
+				
+				// Detect screen-edge
+				if(this.position.x - this.sprite.width / 2 < 0)
+				{
+					this.position.x = 0+(this.sprite.width/2);
+				}
+				if(this.position.x + this.sprite.width / 2 > canvasWidth)
+				{
+					this.position.x = canvasWidth-(this.sprite.width/2);
+				}
+				if(this.position.y - this.sprite.height / 2 < 0)
+				{
+					this.position.y = 0+(this.sprite.height/2);
+				}
+				if(this.position.y + this.sprite.height / 2 > canvasHeight)
+				{
+					this.position.y = canvasHeight-(this.sprite.height/2);
+				}
+				
 			}
 			
+			// Entity draw method - This ensures that the object on the webpage is updated to the same as the code-values;
 			this.draw = function(elementID){
 				var entity = document.getElementById(elementID);
-				entity.style.left = this.position.x + "px";
-				entity.style.bottom = this.position.y + "px";
+				entity.style.left = (this.position.x - this.sprite.width/2) + "px";
+				entity.style.bottom = (this.position.y - this.sprite.height/2)+ "px";
 				entity.innerHTML = "<img src='" + this.sprite.src + "' alt='0'>";
 			};
 		}
@@ -78,12 +99,13 @@
 		var inputX;
 		var inputY;
 		
+		// Initializing a new character
 		var char = new Entity();
-		
 		char.position.x = canvasWidth/2-(char.sprite.width/2);
 		char.position.y = canvasHeight/2-(char.sprite.height/2);
 		char.sprite.src = "spr_character.png";
 		
+		// This is where the magic happen, this is set to run 60 frames per second (1000ms/60frames)
 		setInterval(function update(){
 			
 			if(keysDown['W'.charCodeAt(0)])
@@ -111,8 +133,7 @@
 			{
 				inputX = 0;
 			}
-				char.position.x += inputX;
-				char.position.y += inputY;
+				char.position.translate(inputX,inputY);
 			
 			char.update();
 			char.draw("character");
