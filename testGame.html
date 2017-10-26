@@ -2,6 +2,7 @@
 
 <head>
 	<title>Just A Game</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<style>
 	#canvas {
@@ -12,14 +13,17 @@
 		width:640px;
 	}
 	
-	#character {
+	.character {
+		position: absolute;
+	}
+	
+	.apple {
 		position: absolute;
 	}
 	</style>
 	</head>
 	<body>
 		<div id="canvas">
-			<div id="character"></div>
 		</div>
 		
 		<script>
@@ -31,6 +35,7 @@
 		},false);
 		
 		var canvas = document.getElementById("canvas");
+			canvas.innerHTML = "<div id='menu'>Press 'B' to start the game.</div><div id='snake'></div><div id='apples'></div>";
 		
 		var canvasWidth = 640;
 		var canvasHeight = 480;
@@ -39,10 +44,12 @@
 		var keysDown = {};
 		var oldKeysDown = {};
 		
+		var Entities = "";
+		
 		// The structure for a Vector with its methods
 		function Vector(x,y){
-			this.x = 0;
-			this.y = 0;
+			this.x = x;
+			this.y = y;
 		}
 		Vector.prototype.lerp = function(startVector,endVector,percent){
 				return new Vector(startVector.x + percent * ( endVector.x - startVector.x),
@@ -60,53 +67,79 @@
 				this.y += y * pixelsPerUnit;
 			};
 			
+		Vector.prototype.normalized = function() {
+			var vec = Math.sqrt(this.x * this.x + this.y * this.y);
+			var vex = new Vector(0,0);
+			if(vec != 0){
+				vex = new Vector(this.x / vec, this.y / vec);
+			}
+			return vex;
+		};
+		
+		function Rect(x,y,width,height) {
+			this.position = new Vector(x,y);
+			this.size = new Vector(width,height);
+		}
+		
+		Rect.prototype.contains = function(x,y){
+			return (x.position.x <=  y.position.x + y.size.x &&
+					y.position.x <= x.position.x + x.size.x &&
+					x.position.y <= y.position.y + y.size.y &&
+					y.position.y <= x.position.y + x.size.y);
+		}
+		
+		Rect.prototype.toString = function() {
+			return "("+this.position.x +":"+ this.position.y +"/"+ this.size.x +":"+ this.size.y+")";
+		}
+			
 		function Entity(){
 			// Instantiate entity variables
-			this.position = new Vector(0,0);
-			this.sprite = new Image();
-			this.velocity = new Vector();
+			this.rect = "";
+			this.sprite = "";
+			this.velocity = new Vector(0,0);
 			this.entityID = "";
 			this.entity = "";
-			
+			this.parent = "";
 			// Entity update function
 			// This is where code-side movement and collision detection should be done.
 			this.update = function(){
-				this.position.translate(this.velocity.x,this.velocity.y);
-				
-				// Detect screen-edge
-				if(this.position.x - this.sprite.width / 2 < 0)
+				this.rect.position.translate(this.velocity.x,this.velocity.y);
+				if(this.rect.position.x - this.rect.size.x / 2 < 0)
 				{
-					this.position.x = 0+(this.sprite.width/2);
+					this.rect.position.x = 0+(this.rect.size.x/2);
 				}
-				if(this.position.x + this.sprite.width / 2 > canvasWidth)
+				if(this.rect.position.x + this.rect.size.x / 2 > canvasWidth)
 				{
-					this.position.x = canvasWidth-(this.sprite.width/2);
+					this.rect.position.x = canvasWidth-(this.rect.size.x/2);
 				}
-				if(this.position.y - this.sprite.height / 2 < 0)
+				if(this.rect.position.y - this.rect.size.y / 2 < 0)
 				{
-					this.position.y = 0+(this.sprite.height/2);
+					this.rect.position.y = 0+(this.rect.size.y/2);
 				}
-				if(this.position.y + this.sprite.height / 2 > canvasHeight)
+				if(this.rect.position.y + this.rect.size.y / 2 > canvasHeight)
 				{
-					this.position.y = canvasHeight-(this.sprite.height/2);
+					this.rect.position.y = canvasHeight-(this.rect.size.y/2);
 				}
 			};
 			
-			this.init = function(elementID)
-			{
-				this.elementID = elementID;
-				this.entity = document.getElementById(this.elementID);
-				this.position.x = canvasWidth/2-(char.sprite.width/2);
-				this.position.y = canvasHeight/2-(char.sprite.height/2);
-				this.entity.style.left = (this.position.x - this.sprite.width/2) + "px";
-				this.entity.style.bottom = (this.position.y - this.sprite.height/2)+ "px";
-				this.entity.innerHTML = "<img src='" + this.sprite.src + "' alt='0'>";
+			this.init = function(elementID, sprite)
+			{				
+				this.sprite = new Image();
+				this.sprite.src = sprite;
+				this.entityID = elementID;
+				this.entity = document.getElementById(this.entityID);
+				this.rect = new Rect(canvasWidth/2, canvasHeight/2, this.sprite.width, this.sprite.height);
+				console.log(this.sprite.src);
+				this.entity.style.left = (this.rect.position.x - this.rect.size.x/2) + "px";
+				this.entity.style.bottom = (this.rect.position.y - this.rect.size.y/2)+ "px";
+				this.entity.innerHTML = "<img src='" + this.sprite.src + "'>";
+				Entities[Entities.length] = this;
 			};
 			
 			// Entity draw method - This ensures that the object on the webpage is updated to the same as the code-values;
 			this.draw = function(){
-				this.entity.style.left = (this.position.x - this.sprite.width/2) + "px";
-				this.entity.style.bottom = (this.position.y - this.sprite.height/2)+ "px";
+				this.entity.style.left = (this.rect.position.x - this.rect.size.x/2) + "px";
+				this.entity.style.bottom = (this.rect.position.y - this.rect.size.y/2)+ "px";
 			};
 		}
 		
@@ -138,20 +171,107 @@
 			return value;
 		}
 		
-		var char = new Entity();
-		char.sprite.src = "spr_character.png";
-		char.init("character");
+		var applePrefab = new Entity();
+		applePrefab.sprite.src = "./spr_apple.png";
+		
+		var apples = [];
+		var applesCount = 0;
+		
+		var characterPrefab = new Entity();
+		characterPrefab.sprite.src = "./spr_character.png";
+		
+		var snake = "";
+		
 		var time = (1/60);
+		var countdown = 3;
+		var gameState = "menu";
 		// This is where the magic happen, this is set to try and run at 60 frames per second (1000ms/60frames)
 		setInterval(function(){
 			v = Input();
 			
-			char.velocity.set(lerp(char.velocity.x, v.x * time * 16, 0.25),
-			lerp(char.velocity.y, v.y * time * 16, 0.25));
 			
-			char.update();
-			char.draw();
+			switch(gameState){
+				case "menu":
+					menu.style.display = "block";
+					menu.style.float = "right";
+					
+					if($.inArray('B'.charCodeAt(0),oldKeysDown) == -1 && keysDown['B'.charCodeAt(0)]){
+						gameState = "play";
+						apples = [];
+						countdown = 3;
+						var snakeHead = characterPrefab;
+					//	$("#snake").append("<div id='snake"+snake.length+"' class='character'></div>");
+					//	snakeHead.init("snake"+snake.length, "spr_character.png");
+						$("#snake").append("<div id='snakes' class='character'></div>");
+						snakeHead.init("snakes", "spr_character.png");
+						snake = snakeHead;
+						snake.rect.position.set(canvasWidth/2,canvasHeight/2);
+					}
+				break;
+				default:
+					menu.style.display = "none";
+					
+					if ($.inArray('V'.charCodeAt(0),oldKeysDown) == -1 && keysDown['V'.charCodeAt(0)]){
+						gameState = "menu";
+						canvas.innerHTML = "<div id='menu'>Press 'B' to start the game.</div><div id='snake'></div><div id='apples'></div>";
+					}
+					if(countdown <= 0){
+						countdown = 3;
+						if(apples.length < 10){
+						var ap = applePrefab;
+						$("#apples").append("<div id='apple"+applesCount+"' class='apple'></div>");
+						ap.init("apple" + applesCount, "spr_apple.png");
+						var iX = Math.random() * canvasWidth;
+						var iY = Math.random() * canvasHeight;
+						apples[applesCount] = ap;
+						apples[applesCount].rect.position.set(iX, iY);
+						applesCount++;
+						}
+					}
+					else{
+						countdown -= time;
+					}
+					
+					for(i=0;i<applesCount;i++)
+					{
+						if(snake.rect.contains(snake.rect, apples[i].rect))
+						{
+							console.log(true);
+							$("#"+apples[i].elementID).remove();
+							//delete apples[i];
+						}
+						apples[i].update();
+						apples[i].draw();
+					}
+					
+							snake.velocity.set(lerp(snake.velocity.x, v.normalized().x * time * 16, 0.25),
+							lerp(snake.velocity.y, v.normalized().y * time * 16, 0.25));
+							
+						snake.update();
+						snake.draw();
+						
+						/*
+					for(i = 0; i < snake.length;i++)
+					{	
+						if(i < 1)
+						{							
+							snake[i].velocity.set(lerp(snake[i].velocity.x, v.normalized().x * time * 16, 0.25),
+							lerp(snake[i].velocity.y, v.normalized().y * time * 16, 0.25));
+						}
+						else
+						{							
+							snake[i].velocity = new Vector(lerp(snake[i].velocity.x, snake[i-1].velocity.x, 0.25),
+							lerp(snake[i].velocity.y, snake[i-1].velocity.y, 0.25));
+						}
+						snake[i].update();
+						snake[i].draw();
+					}
+					*/
+					
+				break;
+			}
 			
+			oldKeysDown = keysDown.slice;
 		},time*1000);
 		
 		</script>

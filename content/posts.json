@@ -1,5 +1,16 @@
 [
 {
+	"id":"5",
+	"title":"#1game1week is approaching!",
+	"date":"2017-10-20",
+	"image":"",
+	"previewImage":"",
+	"previewText":"Come join us for our next 1 week game development challenge...",
+	"content":"Aimed at those who struggle to finish projects, we bring you the #1game1week challenge, a challenge where you have one week to develop a fully functional game/prototype. Keep in mind that we will be scoring these games according to the following categories, some might be more important that others depending on the type of genre/topic for the week.<br><br>Tech/Engine: 10<br>Graphics: 10<br>Story: 10<br>Gameplay: 20<br><br>I know, I know, why 20 for gameplay? Well, you see... Gameplay is a unique factor in that it determines things like replayability, bugs, glitches, difficulty, and whether it keeps the player captivated in the Story, Graphics and Tech features. It gives a total score our of 50, which will be added to the Games page as a rating out of 10.<br><br>On to the good part. If you are interested , please send a tweet or facebook message to one of the links to the left or send an e-mail.<br><br>We will present you with further details on the topic and rules by Saturday 10:00AM GMT.",
+		"comments":[]
+	
+},
+{
 	"id":"4",
 	"title":"#1game1week - And the Winner is! Island Adventure",
 	"date":"2017-10-20",
