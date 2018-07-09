@@ -234,7 +234,7 @@
 					
 					for(i=0;i<applesCount;i++)
 					{
-						if(snake.rect.contains(snake.rect, apples[i].rect))
+						if(rect.contains(snake.rect, apples[i].rect))
 						{
 							console.log(true);
 							$("#"+apples[i].elementID).remove();
